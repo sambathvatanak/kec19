@@ -167,18 +167,20 @@ class _homeState extends State<home> {
           ),
         ],
       ),
-      body: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            SizedBox(height: 10,),
-            _title(),
-            _totalCard(context),
-            SizedBox(height: 15,),
-            _Info(context),
-            SizedBox(height: 15,),
-            _knowledge()
-          ],
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              SizedBox(height: 10,),
+              _title(),
+              _totalCard(context),
+              SizedBox(height: 15,),
+              _Info(context),
+              SizedBox(height: 15,),
+              _knowledge()
+            ],
+          ),
         ),
       ),
 
