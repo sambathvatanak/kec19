@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
+import 'note_option.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,6 +14,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _children = [
     //country(),
     home(),
+    Note_Option(),
   ];
 
   @override

@@ -1,14 +1,18 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:kec/screens/home_main.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
-void main() => runApp(MaterialApp(
-      home: new SplashScreen(),
-      routes: <String, WidgetBuilder>{
-        '/super': (BuildContext context) => HomePage()
-      },
-    ));
-
+void main() {
+        initializeDateFormatting().then((_) => runApp(MaterialApp(
+        home: new SplashScreen(),
+        routes: <String, WidgetBuilder>{
+          '/super': (BuildContext context) => HomePage()
+        },
+            ),
+          ),
+        );
+}
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
