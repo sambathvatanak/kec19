@@ -9,21 +9,6 @@ class Note_Option extends StatefulWidget {
   _Note_OptionState createState() => _Note_OptionState();
 }
 
-Widget _title() {
-  return Container(
-    child: Padding(
-      padding: const EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 8.0),
-      child: Text(
-        'កំណត់ត្រា',
-        style: TextStyle(
-          fontSize: 30,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-    ),
-  );
-}
-
 class _Note_OptionState extends State<Note_Option> {
   CalendarController _controller;
   Map<DateTime, List<dynamic>> _events;
@@ -63,6 +48,21 @@ class _Note_OptionState extends State<Note_Option> {
       newMap[DateTime.parse(key)] = map[key];
     });
     return newMap;
+  }
+
+  Widget _title() {
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 8.0),
+        child: Text(
+          'កំណត់ត្រា',
+          style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+    );
   }
 
   Widget _calendar() {
@@ -198,7 +198,7 @@ class _Note_OptionState extends State<Note_Option> {
                       Icons.event,
                       color: Colors.lightBlue,
                     ),
-                    title: Text(event + "  " + "asdasd"),
+                    title: Text(event),
                     trailing: Icon(Icons.keyboard_arrow_right),
                   ),
                 )),
@@ -254,9 +254,7 @@ class _Note_OptionState extends State<Note_Option> {
                         _events[_controller.selectedDay]
                             .add(_eventController.text);
                       } else {
-                        _events[_controller.selectedDay] = [
-                          _eventController.text
-                        ];
+                        _events[_controller.selectedDay] = [_eventController.text];
                       }
                       prefs.setString("events", json.encode(encodeMap(_events)));
                       _eventController.clear();

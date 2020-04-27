@@ -9,6 +9,9 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="kec"
         android:icon="@mipmap/ic_launcher">
+<!--        add for google map-->
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCBlyYv_YB-UoxQpxsRrxkYvtUPXLXp0fM"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -27,4 +30,6 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET">
+    </uses-permission>
 </manifest>
