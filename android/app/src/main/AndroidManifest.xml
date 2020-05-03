@@ -12,6 +12,8 @@
 <!--        add for google map-->
         <meta-data android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCBlyYv_YB-UoxQpxsRrxkYvtUPXLXp0fM"/>
+<!--        <meta-data android:name="com.google.android.gms.version"-->
+<!--            android:value="@integer/google_play_services_version" />-->
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

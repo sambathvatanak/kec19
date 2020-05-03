@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kec/screens/account.dart';
 import 'package:kec/screens/add_option.dart';
 import 'package:kec/screens/map.dart';
 import 'home.dart';
@@ -19,7 +20,7 @@ class _HomePageState extends State<HomePage> {
     Note_Option(),
     Add_Option(),
     map(),
-    //CameraExampleHome(),
+    Account(),
   ];
 
   @override
