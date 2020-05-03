@@ -157,10 +157,15 @@ Widget _buildProfileImage() {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Icon(
-                Icons.camera_alt,
-                color: Colors.white,
-                size: 30.0,
+              GestureDetector(
+                child: Icon(
+                  Icons.camera_alt,
+                  color: Colors.white,
+                  size: 30.0,
+                ),
+                onTap: () {
+                  print('hello');
+                },
               ),
             ],
           ),
