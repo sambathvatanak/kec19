@@ -161,7 +161,7 @@ Widget _note_textbox(BuildContext context) {
         filled: true,
         fillColor: Color(0xffF7F8F9),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.grey),
+          borderSide: BorderSide(color: Color(0xffF7F8F9)),
           borderRadius: BorderRadius.circular(25.0),
         ),
         focusedBorder: OutlineInputBorder(

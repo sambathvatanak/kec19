@@ -222,9 +222,10 @@ class _mapState extends State<map> {
   Widget _bar_number_info(){
     return Container(
       child: Positioned(
-        top: 560.0,
+//        top: 560.0,
+        top: MediaQuery.of(context).size.height / 1.5,
         right: 15.0,
-        left: 320.0,
+        left: MediaQuery.of(context).size.width / 1.4,
         child: Container(
             width: MediaQuery.of(context).size.width,
             height: 130.0,

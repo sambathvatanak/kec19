@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kec/screens/account.dart';
 import 'package:kec/screens/add_option.dart';
 import 'package:kec/screens/map.dart';
@@ -11,7 +12,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   int _currentIndex = 0;
 
   final List<Widget> _children = [
@@ -37,23 +37,48 @@ class _HomePageState extends State<HomePage> {
         items: [
           BottomNavigationBarItem(
             icon: new Icon(Icons.home),
-            title: new Text('ទំព័រដើម'),
+            title: new Text(
+              'ទំព័រដើម',
+              style: TextStyle(
+                fontSize: ScreenUtil().setSp(30.0),
+              ),
+            ),
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.date_range),
-            title: new Text('កំណត់ត្រា'),
+            title: new Text(
+              'កំណត់ត្រា',
+              style: TextStyle(
+                fontSize: ScreenUtil().setSp(30.0),
+              ),
+            ),
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.add_circle_outline),
-            title: new Text('បន្ថែម'),
+            title: new Text(
+              'បន្ថែម',
+              style: TextStyle(
+                fontSize: ScreenUtil().setSp(30.0),
+              ),
+            ),
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.map),
-            title: new Text('ផែនទី'),
+            title: new Text(
+              'ផែនទី',
+              style: TextStyle(
+                fontSize: ScreenUtil().setSp(30.0),
+              ),
+            ),
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.person_outline),
-            title: new Text('គណនី'),
+            title: new Text(
+              'គណនី',
+              style: TextStyle(
+                fontSize: ScreenUtil().setSp(30.0),
+              ),
+            ),
           ),
         ],
         onTap: (index) {
@@ -66,4 +91,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-

@@ -1,8 +1,9 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 class Note_Option extends StatefulWidget {
   @override
@@ -17,12 +18,12 @@ class _Note_OptionState extends State<Note_Option> {
   SharedPreferences prefs;
 
   void initState() {
-    // TODO: implement initState
     super.initState();
     _controller = CalendarController();
     _eventController = TextEditingController();
     _events = {};
     _selectedEvents = [];
+    initializeDateFormatting('km_KM', null);
     initPrefs();
   }
 
@@ -57,7 +58,7 @@ class _Note_OptionState extends State<Note_Option> {
         child: Text(
           'កំណត់ត្រា',
           style: TextStyle(
-            fontSize: 30,
+            fontSize: ScreenUtil().setSp(50.0),
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -78,6 +79,15 @@ class _Note_OptionState extends State<Note_Option> {
                 color: Color(0xffF8F8F8),
               ),
               child: TableCalendar(
+                daysOfWeekStyle: DaysOfWeekStyle(
+                  weekdayStyle: TextStyle(
+                    fontSize: ScreenUtil().setSp(32.0),
+                  ),
+                  weekendStyle: TextStyle(
+                    fontSize: ScreenUtil().setSp(32.0),
+                    color: Colors.red,
+                  ),
+                ),
                 locale: 'km_KM',
                 events: _events,
                 initialCalendarFormat: CalendarFormat.month,
@@ -88,7 +98,7 @@ class _Note_OptionState extends State<Note_Option> {
                   selectedColor: Theme.of(context).primaryColor,
                   todayStyle: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 18.0,
+                      fontSize: ScreenUtil().setSp(35.0),
                       color: Colors.white),
                 ),
                 headerStyle: HeaderStyle(
@@ -117,7 +127,10 @@ class _Note_OptionState extends State<Note_Option> {
                         borderRadius: BorderRadius.circular(0.0)),
                     child: Text(
                       date.day.toString(),
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: ScreenUtil().setSp(30.0),
+                      ),
                     ),
                   ),
                   outsideDayBuilder: (context, date, events) => Container(
@@ -128,7 +141,10 @@ class _Note_OptionState extends State<Note_Option> {
                         borderRadius: BorderRadius.circular(8.0)),
                     child: Text(
                       date.day.toString(),
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: ScreenUtil().setSp(30.0),
+                      ),
                     ),
                   ),
                   dayBuilder: (context, date, events) => Container(
@@ -139,7 +155,10 @@ class _Note_OptionState extends State<Note_Option> {
                         borderRadius: BorderRadius.circular(8.0)),
                     child: Text(
                       date.day.toString(),
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: ScreenUtil().setSp(30.0),
+                      ),
                     ),
                   ),
                   selectedDayBuilder: (context, date, events) => Container(
@@ -150,7 +169,10 @@ class _Note_OptionState extends State<Note_Option> {
                           borderRadius: BorderRadius.circular(8.0)),
                       child: Text(
                         date.day.toString(),
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: ScreenUtil().setSp(30.0),
+                        ),
                       )),
                   todayDayBuilder: (context, date, events) => Container(
                       margin: const EdgeInsets.all(4.0),
@@ -160,7 +182,10 @@ class _Note_OptionState extends State<Note_Option> {
                           borderRadius: BorderRadius.circular(8.0)),
                       child: Text(
                         date.day.toString(),
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: ScreenUtil().setSp(30.0),
+                        ),
                       )),
 //                markersBuilder: (context, date, events, holidays) {
 //                  final children = <Widget>[];
@@ -176,7 +201,7 @@ class _Note_OptionState extends State<Note_Option> {
                 child: Text(
                   'ទិន្នន័យរបស់អ្នក',
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: ScreenUtil().setSp(35.0),
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -219,7 +244,12 @@ class _Note_OptionState extends State<Note_Option> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12.0),
               ),
-              title: Text('សូមវាយបញ្ចូលកំណត់ត្រា'),
+              title: Text(
+                'សូមវាយបញ្ចូលកំណត់ត្រា',
+                style: TextStyle(
+                  fontSize: ScreenUtil().setSp(35),
+                ),
+              ),
               content: TextField(
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
@@ -227,7 +257,7 @@ class _Note_OptionState extends State<Note_Option> {
               ),
               actions: <Widget>[
                 Container(
-                 // margin: EdgeInsets.all(5.0),
+                  // margin: EdgeInsets.all(5.0),
                   child: FlatButton(
                     child: Text(
                       'បោះបង់',
@@ -254,9 +284,12 @@ class _Note_OptionState extends State<Note_Option> {
                         _events[_controller.selectedDay]
                             .add(_eventController.text);
                       } else {
-                        _events[_controller.selectedDay] = [_eventController.text];
+                        _events[_controller.selectedDay] = [
+                          _eventController.text
+                        ];
                       }
-                      prefs.setString("events", json.encode(encodeMap(_events)));
+                      prefs.setString(
+                          "events", json.encode(encodeMap(_events)));
                       _eventController.clear();
                       Navigator.pop(context);
                     },
@@ -273,6 +306,7 @@ class _Note_OptionState extends State<Note_Option> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, width: 750, height: 1334, allowFontScaling: false);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(

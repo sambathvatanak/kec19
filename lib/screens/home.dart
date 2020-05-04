@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class home extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ Widget _title(){
       child: Text(
         'ទំព័រដើម',
         style: TextStyle(
-          fontSize: 30,
+          fontSize: ScreenUtil().setSp(35),
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -22,7 +23,7 @@ Widget _title(){
 
 Widget _totalCard(BuildContext context){
   return Container(
-    height: 180,
+    height: ScreenUtil().setHeight(300),
     width: MediaQuery.of(context).size.width,
     child: Padding(
       padding: const EdgeInsets.all(8.0),
@@ -54,7 +55,7 @@ Widget _Info(BuildContext context){
               child: Text(
                 'ប្រចាំថ្ងៃ',
                 style: TextStyle(
-                  fontSize: 21,
+                  fontSize: ScreenUtil().setSp(35),
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -66,7 +67,7 @@ Widget _Info(BuildContext context){
                 child: Text(
                   'ទាំងអស់',
                   style: TextStyle(
-                    fontSize: 21,
+                    fontSize: ScreenUtil().setSp(35),
                     fontWeight: FontWeight.w600,
                     color: Colors.lightBlue,
                   ),
@@ -77,8 +78,8 @@ Widget _Info(BuildContext context){
         ),
         SizedBox(height: 5,),
         Container(
-          height: 150,
-          width: 350,
+          height: ScreenUtil().setHeight(230),
+          width: ScreenUtil().setWidth(560),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: ClipRRect(
@@ -109,7 +110,7 @@ Widget _knowledge(){
           child: Text(
             'ចំណេះដឹងអំពីកូវីត-១៩',
             style: TextStyle(
-              fontSize: 21,
+              fontSize: ScreenUtil().setSp(35),
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -118,8 +119,8 @@ Widget _knowledge(){
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
-              height: 150,
-              width: 200,
+              height: ScreenUtil().setHeight(320),
+              width: ScreenUtil().setWidth(380),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ClipRRect(
@@ -147,6 +148,7 @@ Widget _knowledge(){
 class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, width: 750, height: 1334, allowFontScaling: false);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kec/screens/login.dart';
 
 class Account extends StatefulWidget {
   @override
@@ -200,7 +201,7 @@ Widget _save_button(BuildContext context) {
         )),
     child: new GestureDetector(
       onTap: () {
-        print('hello');
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => Login()));
       },
       child: Text(
         'Sign Out',
@@ -218,30 +219,28 @@ class _AccountState extends State<Account> {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      body: SizedBox(
-        child: Stack(
-            children: <Widget>[
-              _buildCoverImage(screenSize),
-              SafeArea(
-                child: SingleChildScrollView(
-                  child: Container(
-                    child: Column(
-                      children: <Widget>[
-                        SizedBox(height: screenSize.height / 8.1),
-                        _buildProfileImage(),
-                        _information_title(context),
-                        _information(),
-                        _languages_title(context),
-                        _languages(),
-                        SizedBox(height: 60.0,),
-                        _save_button(context),
-                      ],
-                    ),
+      body: Stack(
+          children: <Widget>[
+            _buildCoverImage(screenSize),
+            SafeArea(
+              child: SingleChildScrollView(
+                child: Container(
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(height: screenSize.height / 8.1),
+                      _buildProfileImage(),
+                      _information_title(context),
+                      _information(),
+                      _languages_title(context),
+                      _languages(),
+                      SizedBox(height: 60.0,),
+                      _save_button(context),
+                    ],
                   ),
                 ),
               ),
-            ],
-        ),
+            ),
+          ],
       ),
     );
   }
