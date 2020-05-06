@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kec/screens/knowledge.dart';
 
 class home extends StatefulWidget {
   @override
@@ -100,7 +101,7 @@ Widget _Info(BuildContext context){
   );
 }
 
-Widget _knowledge(){
+Widget _knowledge(BuildContext context){
   return Container(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,21 +119,26 @@ Widget _knowledge(){
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Container(
-              height: ScreenUtil().setHeight(320),
-              width: ScreenUtil().setWidth(380),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(30.0),
-                  child: Card(
-                    color: Colors.lightBlue,
-                    child: Column(
-                      children: <Widget>[
-                        Image(
-                          image: AssetImage('assets/khmer_flag.png'),
-                        ),
-                      ],
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => Knowledge()));
+              },
+              child: Container(
+                height: ScreenUtil().setHeight(290),
+                width: ScreenUtil().setWidth(380),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(30.0),
+                    child: Card(
+                      color: Colors.lightBlue,
+                      child: Column(
+                        children: <Widget>[
+                          Image(
+                            image: AssetImage('assets/khmer_flag.png'),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -180,7 +186,7 @@ class _homeState extends State<home> {
               SizedBox(height: 15,),
               _Info(context),
               SizedBox(height: 15,),
-              _knowledge()
+              _knowledge(context),
             ],
           ),
         ),

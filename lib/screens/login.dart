@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -39,7 +40,7 @@ Widget _title(BuildContext context){
         Text(
           'Khmer Education',
           style: TextStyle(
-            fontSize: 30,
+            fontSize: ScreenUtil().setSp(58.0),
             fontWeight: FontWeight.bold,
             color: Colors.lightBlue,
           ),
@@ -48,7 +49,7 @@ Widget _title(BuildContext context){
         Text(
           'COVID-19',
           style: TextStyle(
-            fontSize: 30,
+            fontSize: ScreenUtil().setSp(58.0),
             fontWeight: FontWeight.bold,
             color: Colors.lightBlue,
           ),
@@ -97,15 +98,16 @@ Widget _divider(BuildContext context){
   );
 }
 
-Widget _save_button(BuildContext context) {
+Widget _login_button(BuildContext context) {
   return Container(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Container(
           width: MediaQuery.of(context).size.width,
+          height: ScreenUtil().setHeight(120.0),
           margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-          padding: EdgeInsets.symmetric(vertical: 18),
+          //padding: EdgeInsets.symmetric(vertical: 18),
           alignment: Alignment.center,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -135,7 +137,7 @@ Widget _save_button(BuildContext context) {
                 Text(
                   'ចូលប្រើតាមរយះ Facebook',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: ScreenUtil().setSp(38.0),
                     color: Colors.white,
                   ),
                 ),
@@ -148,15 +150,16 @@ Widget _save_button(BuildContext context) {
           child: Text(
             'ឬ',
             style: TextStyle(
-              fontSize: 18,
+              fontSize: ScreenUtil().setSp(38.0),
               fontWeight: FontWeight.w600,
             ),
           ),
         ),
         Container(
           width: MediaQuery.of(context).size.width,
+          height: ScreenUtil().setHeight(120.0),
           margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-          padding: EdgeInsets.symmetric(vertical: 18),
+          //padding: EdgeInsets.symmetric(vertical: 18),
           alignment: Alignment.center,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -182,7 +185,7 @@ Widget _save_button(BuildContext context) {
             child: Text(
               'ចុះឈ្មោះ',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: ScreenUtil().setSp(38.0),
                 color: Colors.white,
               ),
             ),
@@ -200,7 +203,7 @@ Widget _save_button(BuildContext context) {
                     text: 'មានគណនីរួចហើយ? ',
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 18.0,
+                      fontSize:  ScreenUtil().setSp(38.0),
                       fontWeight: FontWeight.w400,
                     )
                   ),
@@ -208,7 +211,7 @@ Widget _save_button(BuildContext context) {
                     text: 'ចូលប្រើប្រាស់',
                     style: TextStyle(
                       color: Colors.lightBlue,
-                      fontSize: 18.0,
+                      fontSize:  ScreenUtil().setSp(38.0),
                       fontWeight: FontWeight.w400,
                     )
                   )
@@ -226,6 +229,7 @@ Widget _save_button(BuildContext context) {
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, width: 750, height: 1334, allowFontScaling: false);
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
@@ -261,8 +265,8 @@ class _LoginState extends State<Login> {
                   children: <Widget>[
                     _title(context),
                     _divider(context),
-                    SizedBox(height: 60,),
-                    _save_button(context),
+                    SizedBox(height: 40,),
+                    _login_button(context),
                   ],
                 ),
               ),

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:http/http.dart' as http;
 
@@ -90,7 +91,7 @@ class _mapState extends State<map> {
           child: Text(
             'ផែនទីតំបន់ប្រឈម',
             style: TextStyle(
-              fontSize: 24,
+              fontSize: ScreenUtil().setSp(40.0),
               fontWeight: FontWeight.w800,
             ),
           ),
@@ -110,11 +111,12 @@ class _mapState extends State<map> {
           margin: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 20.0),
           padding: EdgeInsets.all(1.0),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Colors.white.withOpacity(0.5),
             borderRadius: BorderRadius.circular(10.0),
           ),
           //color: Colors.white,
           child: Card(
+            color: Colors.white.withOpacity(0.5),
             elevation: 0.0,
             child: Column(
               children: <Widget>[
@@ -124,21 +126,21 @@ class _mapState extends State<map> {
                       Text(
                         'ករណីសរុប',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: ScreenUtil().setSp(30.0),
                           fontWeight: FontWeight.w400,
                         ),
                       ),
                     Text(
                       'ជាសះស្បើយ',
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: ScreenUtil().setSp(30.0),
                         fontWeight: FontWeight.w400,
                       ),
                     ),
                     Text(
                       'មរណភាព',
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: ScreenUtil().setSp(30.0),
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -163,7 +165,7 @@ class _mapState extends State<map> {
                         Text(
                           '102',
                           style: TextStyle(
-                            fontSize: 15,
+                            fontSize: ScreenUtil().setSp(30.0),
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -183,7 +185,7 @@ class _mapState extends State<map> {
                         Text(
                           '13',
                           style: TextStyle(
-                            fontSize: 15,
+                            fontSize: ScreenUtil().setSp(30.0),
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -203,7 +205,7 @@ class _mapState extends State<map> {
                         Text(
                           '00',
                           style: TextStyle(
-                            fontSize: 15,
+                            fontSize: ScreenUtil().setSp(30.0),
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -223,32 +225,32 @@ class _mapState extends State<map> {
     return Container(
       child: Positioned(
 //        top: 560.0,
-        top: MediaQuery.of(context).size.height / 1.5,
+        top: ScreenUtil().setHeight(305.0) / 0.368,
         right: 15.0,
-        left: MediaQuery.of(context).size.width / 1.4,
+        left: ScreenUtil().setWidth(200.0) / 0.37,
         child: Container(
             width: MediaQuery.of(context).size.width,
-            height: 130.0,
+            //height: ScreenUtil().setHeight(275.0),
             margin: EdgeInsets.fromLTRB(10.0, 20.0, 0.0, 10.0),
             padding: EdgeInsets.all(1.0),
             decoration: BoxDecoration(
-              color: Color(0xffF8F8F8),
+              color: Color(0xffF8F8F8).withOpacity(0.5),
               borderRadius: BorderRadius.circular(10.0),
             ),
             //color: Colors.white,
             child: Card(
-              color: Color(0xffF8F8F8),
+              color: Color(0xffF8F8F8).withOpacity(0.5),
               elevation: 0.0,
               child: Column(
                 children: <Widget>[
                   Container(
-                    margin: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+                    margin: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 0.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Container(
-                          width: 15.0,
-                          height: 15.0,
+                          width: ScreenUtil().setWidth(30.0),
+                          height: ScreenUtil().setWidth(30.0),
                           decoration: BoxDecoration(
                             color: Color(0xffFEDB82),
                             shape: BoxShape.rectangle,
@@ -258,7 +260,7 @@ class _mapState extends State<map> {
                         Text(
                           '01-05',
                           style: TextStyle(
-                            fontSize: 15,
+                            fontSize: ScreenUtil().setSp(30.0),
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -271,8 +273,8 @@ class _mapState extends State<map> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Container(
-                          width: 15.0,
-                          height: 15.0,
+                          width: ScreenUtil().setWidth(30.0),
+                          height: ScreenUtil().setWidth(30.0),
                           decoration: BoxDecoration(
                             color: Color(0xffFAB962),
                             shape: BoxShape.rectangle,
@@ -282,7 +284,7 @@ class _mapState extends State<map> {
                         Text(
                           '06-10',
                           style: TextStyle(
-                            fontSize: 15,
+                            fontSize: ScreenUtil().setSp(30.0),
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -295,8 +297,8 @@ class _mapState extends State<map> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Container(
-                          width: 15.0,
-                          height: 15.0,
+                          width: ScreenUtil().setWidth(30.0),
+                          height: ScreenUtil().setWidth(30.0),
                           decoration: BoxDecoration(
                             color: Color(0xffF99852),
                             shape: BoxShape.rectangle,
@@ -306,7 +308,7 @@ class _mapState extends State<map> {
                         Text(
                           '11-20',
                           style: TextStyle(
-                            fontSize: 15,
+                            fontSize: ScreenUtil().setSp(30.0),
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -319,8 +321,8 @@ class _mapState extends State<map> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Container(
-                          width: 15.0,
-                          height: 15.0,
+                          width: ScreenUtil().setWidth(30.0),
+                          height: ScreenUtil().setWidth(30.0),
                           decoration: BoxDecoration(
                             color: Color(0xffFC5E41),
                             shape: BoxShape.rectangle,
@@ -330,7 +332,7 @@ class _mapState extends State<map> {
                         Text(
                           '21-50',
                           style: TextStyle(
-                            fontSize: 15,
+                            fontSize:  ScreenUtil().setSp(30.0),
                             fontWeight: FontWeight.w600,
                           ),
                         ),

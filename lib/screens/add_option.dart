@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kec/models/place_data.dart';
 import 'package:kec/models/symptom_data.dart';
 import 'package:image_picker/image_picker.dart';
@@ -21,7 +22,7 @@ Widget _title() {
       child: Text(
         'បន្ថែមកំណត់ត្រា',
         style: TextStyle(
-          fontSize: 30,
+          fontSize: ScreenUtil().setSp(50.0),
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -36,7 +37,7 @@ Widget _goesPlace_title() {
       child: Text(
         'កន្លែងបានទៅ',
         style: TextStyle(
-          fontSize: 18,
+          fontSize: ScreenUtil().setSp(35.0),
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -51,7 +52,7 @@ Widget _notedPeople_title() {
       child: Text(
         'សម្គាល់អ្នកនៅជំវិញខ្លួន',
         style: TextStyle(
-          fontSize: 18,
+          fontSize: ScreenUtil().setSp(35.0),
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -66,7 +67,7 @@ Widget _noted_Title() {
       child: Text(
         'ចំណាំ',
         style: TextStyle(
-          fontSize: 18,
+          fontSize: ScreenUtil().setSp(35.0),
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -81,7 +82,7 @@ Widget _symptom_title() {
       child: Text(
         'រោគសញ្ញា',
         style: TextStyle(
-          fontSize: 18,
+          fontSize: ScreenUtil().setSp(35.0),
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -153,6 +154,7 @@ Widget _image_from_camera() {
 Widget _note_textbox(BuildContext context) {
   return Container(
     padding: EdgeInsets.all(10.0),
+    //height: ScreenUtil().setHeight(350.0),
     width: MediaQuery.of(context).size.width,
     child: new TextFormField(
       maxLines: 5,
@@ -180,6 +182,7 @@ Widget _note_textbox(BuildContext context) {
 
 Widget _save_button(BuildContext context) {
   return Container(
+//    height: ScreenUtil().setHeight(130.0),
     width: MediaQuery.of(context).size.width,
     margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
     padding: EdgeInsets.symmetric(vertical: 15),
@@ -208,7 +211,7 @@ Widget _save_button(BuildContext context) {
       child: Text(
         'រក្សាទុក',
         style: TextStyle(
-          fontSize: 20,
+          fontSize: ScreenUtil().setSp(35.0),
           color: Colors.white,
         ),
       ),
@@ -319,6 +322,7 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
             item,
             style: TextStyle(
               color: Color(0xff1AA9E8),
+              fontSize: ScreenUtil().setSp(30.0),
             ),
           ),
           selected: selectedChoices.contains(item),
