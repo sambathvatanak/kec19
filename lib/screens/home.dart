@@ -158,6 +158,7 @@ class _homeState extends State<home> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         elevation: 1.0,
         actions: <Widget>[

@@ -128,10 +128,10 @@ Widget _buildCoverImage(Size screenSize) {
   return Container(
     height: screenSize.height / 4.2,
     decoration: BoxDecoration(
-//      image: DecorationImage(
-//        image: AssetImage('assets/images/cover.jpeg'),
-//        fit: BoxFit.cover,
-//      ),
+      image: DecorationImage(
+        image: AssetImage('assets/Group 8456.png'),
+        fit: BoxFit.cover,
+      ),
       color: Colors.lightBlue,
     ),
   );

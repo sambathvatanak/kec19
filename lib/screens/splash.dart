@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:kec/screens/home_main.dart';
+import 'package:kec/screens/bottom_navigationbar.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 //void main() {

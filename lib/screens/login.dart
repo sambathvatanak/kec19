@@ -10,7 +10,10 @@ Widget _buildCoverImage(Size screenSize) {
   return Container(
     width: screenSize.width,
     decoration: BoxDecoration(
-      color: Colors.lightBlue,
+      image: DecorationImage(
+        image: AssetImage('assets/Group 8456.png'),
+        fit: BoxFit.cover,
+      ),
     ),
   );
 }
