@@ -23,7 +23,6 @@ class _mapState extends State<map> {
 
   @override
   void initState() {
-    getData();
     addPoints();
     List< Polygon > addPolygon = [
       Polygon(
@@ -45,36 +44,6 @@ class _mapState extends State<map> {
     {
       var ltlng= LatLng( GeoJson.IN[ i ][ 1 ], GeoJson.IN[ i ][ 0 ] );
       point.add( ltlng );
-    }
-  }
-
- void getData() async {
-    try {
-      final response =
-      await http.get('https://coronavirus-tracker-api.herokuapp.com/v2/locations');
-
-      final int statusCode = response.statusCode;
-      if (statusCode == 201 || statusCode == 200) {
-        Map responseBody = json.decode(response.body);
-        List results = responseBody["locations"];
-
-        Iterable _markers = Iterable.generate(240, (index) {
-          Map result = results[index];
-          Map location = result["coordinates"];
-          // print(result['coordinates']);
-          LatLng latLngMarker = LatLng(double.parse(location["latitude"]), double.parse(location["longitude"]));
-          return Marker(markerId: MarkerId("marker$index"),position: latLngMarker);
-        });
-        print(_markers);
-        setState(() {
-          markers = _markers;
-          //print(markers);
-        });
-      } else {
-        throw Exception('Error');
-      }
-    } catch(e) {
-      print("Error" + e.toString());
     }
   }
 
