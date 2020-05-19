@@ -19,31 +19,39 @@ class _mapState extends State<map> {
 
   Iterable markers = [];
   int num = 0;
-  Set<Polygon> polygon;
+  Set <Polygon> polygon = new Set();
 
   @override
   void initState() {
     addPoints();
     List< Polygon > addPolygon = [
       Polygon(
-        polygonId: PolygonId( 'India' ),
+        polygonId: PolygonId('India'),
         points: point,
         consumeTapEvents: true,
         strokeColor: Colors.grey,
         strokeWidth: 1,
         fillColor: Colors.redAccent,
-      ),
+      )
     ];
-   // polygon.addAll( addPolygon );
+    polygon.addAll(addPolygon);
 
+    print('hello world');
+    print(addPolygon);
     super.initState();
   }
+
+  Future add_polygon() async {
+
+  }
+
   void addPoints()
   {
     for( var i=0 ; i < GeoJson.IN.length ; i++ )
     {
       var ltlng= LatLng( GeoJson.IN[ i ][ 1 ], GeoJson.IN[ i ][ 0 ] );
-      point.add( ltlng );
+      point.add(ltlng);
+      //print(point);
     }
   }
 
@@ -325,7 +333,7 @@ class _mapState extends State<map> {
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               child: GoogleMap(
-                initialCameraPosition: CameraPosition(target: latlng, zoom: 6.8),
+                initialCameraPosition: CameraPosition(target: latlng, zoom: 3.8),
                 mapType: MapType.normal,
                 trafficEnabled: true,
                 zoomControlsEnabled: false,
